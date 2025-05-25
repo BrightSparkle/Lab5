@@ -1,16 +1,42 @@
+### Maven ###
 target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.properties
 !.mvn/wrapper/maven-wrapper.jar
+
+### Build ###
 !**/src/main/**/target/
+!**/src/main/**/build/
 !**/src/test/**/target/
+!**/src/test/**/build/
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
 
 ### IntelliJ IDEA ###
 .idea/modules.xml
 .idea/jarRepositories.xml
 .idea/compiler.xml
 .idea/libraries/
+.idea/workspace.xml
+.idea/navEditor.xml
+.idea/sonarlint/
+.idea/datasources.xml
 *.iws
 *.iml
 *.ipr
+out/
+.idea/caches/
+.idea/codeStyles/
 
 ### Eclipse ###
 .apt_generated
@@ -20,6 +46,9 @@ target/
 .settings
 .springBeans
 .sts4-cache
+bin/
+tmp/
+.tmp/
 
 ### NetBeans ###
 /nbproject/private/
@@ -28,11 +57,44 @@ target/
 /nbdist/
 /.nb-gradle/
 build/
-!**/src/main/**/build/
-!**/src/test/**/build/
 
 ### VS Code ###
 .vscode/
+*.code-workspace
 
 ### Mac OS ###
 .DS_Store
+._*
+
+### Logs and temp files ###
+*.log
+logs/
+temp/
+*.tmp
+*.swp
+*.swo
+
+### Environment ###
+.env
+*.env
+.env.local
+*.env.local
+
+### Code Coverage ###
+.coverage
+coverage/
+jacoco.exec
+
+### Checkstyle ###
+.checkstyle
+
+### Patch files ###
+*.orig
+*.rej
+
+### Dev Containers ###
+.devcontainer/
+
+### Local Configuration ###
+*.local
+*.prefs
