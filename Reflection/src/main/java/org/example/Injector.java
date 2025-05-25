@@ -3,6 +3,15 @@ import java.lang.reflect.*;
 import java.io.*;
 import java.util.Properties;
 
+/**
+ * Инжектор зависимостей, использующий рефлексию и настройки из properties-файла.
+ * <p>
+ * Пример использования:
+ * <pre>{@code
+ * SomeBean sb = new Injector().inject(new SomeBean());
+ * sb.foo();
+ * }</pre>
+ */
 public class Injector {
     private final Properties properties;
 
@@ -10,6 +19,11 @@ public class Injector {
         this.properties = properties;
     }
 
+    /**
+     * Создает инжектор, загружая настройки из файла config.properties.
+     *
+     * @throws IOException если файл настроек не найден или недоступен
+     */
     public Injector() throws IOException {
         properties = new Properties();
         try (InputStream input = getClass().getClassLoader().getResourceAsStream("config.properties")) {
@@ -20,6 +34,14 @@ public class Injector {
         }
     }
 
+    /**
+     * Внедряет зависимости в переданный объект.
+     *
+     * @param obj объект для внедрения зависимостей
+     * @return модифицированный объект с инициализированными полями
+     * @throws Exception если возникла ошибка при работе с рефлексией
+     *         или класс реализации не найден
+     */
     public <T> T inject(T obj) throws Exception {
         // Перебираем все поля объекта
         for (Field field : obj.getClass().getDeclaredFields()) {

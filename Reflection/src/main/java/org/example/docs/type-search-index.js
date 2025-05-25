@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"org.example","l":"Injector"},{"p":"<Unnamed>","l":"InjectorTest"},{"p":"org.example","l":"Main"},{"p":"org.example","l":"SomeBean"},{"p":"org.example","l":"SomeInterface"},{"p":"org.example","l":"SomeOtherInterface"}];updateSearchResults();
