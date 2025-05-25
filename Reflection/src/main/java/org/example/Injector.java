@@ -29,17 +29,18 @@ public class Injector {
 
                 // Ищем реализацию в properties
                 String implClassName = properties.getProperty(fieldType.getName());
-                if (implClassName == null) {
+                if (implClassName == null || implClassName.isEmpty()) {
                     throw new RuntimeException("Реализация для " + fieldType.getName() + " не найдена");
                 }
 
-                // Создаем экземпляр класса реализации
-                Class<?> implClass = Class.forName(implClassName);
-                Object implInstance = implClass.getDeclaredConstructor().newInstance();
-
-                // Устанавливаем значение поля
-                field.setAccessible(true);
-                field.set(obj, implInstance);
+                try {
+                    Class<?> implClass = Class.forName(implClassName);
+                    Object implInstance = implClass.getDeclaredConstructor().newInstance();
+                    field.setAccessible(true);
+                    field.set(obj, implInstance);
+                } catch (ClassNotFoundException e) {
+                    throw new RuntimeException("Класс реализации не найден: " + implClassName, e);
+                }
             }
         }
         return obj;

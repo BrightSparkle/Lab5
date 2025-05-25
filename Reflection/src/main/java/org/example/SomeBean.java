@@ -1,6 +1,6 @@
 package org.example;
 
-class SomeBean {
+public class SomeBean {
     @AutoInjectable
     private SomeInterface field1;
     @AutoInjectable
