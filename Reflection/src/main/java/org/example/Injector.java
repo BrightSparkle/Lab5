@@ -6,6 +6,10 @@ import java.util.Properties;
 public class Injector {
     private final Properties properties;
 
+    public Injector(Properties properties) {
+        this.properties = properties;
+    }
+
     public Injector() throws IOException {
         properties = new Properties();
         try (InputStream input = getClass().getClassLoader().getResourceAsStream("config.properties")) {
