@@ -5,13 +5,8 @@ import java.io.*;
 import java.util.Properties;
 
 public class Main {
-    public static void main(String[] args) {
-        SomeBean sb = null;
-        try {
-            sb = new Injector().inject(new SomeBean());
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
+    public static void main(String[] args) throws Exception {
+        SomeBean sb = new Injector().inject(new SomeBean());
         sb.foo();
     }
 }
